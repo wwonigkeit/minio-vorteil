@@ -17,8 +17,7 @@ This package contains the Vorteil configuration files and the MinIO binary. The 
 
 1. Download and install the latest [Vorteil open source toolkit](https://github.com/vorteil/vorteil)
 2. Clone the repo to an appropriate directory on your local machine
-3. Download the Elasticsearch, Logstash and Kibana generic Linux distrubtions and extract to the root of the repository
-4. If you want to use NFS:
+3. If you want to use NFS:
        
    - map the correct NFS shares (IP address & mount points) in the default.vcfg configuration file
    
@@ -26,6 +25,6 @@ This package contains the Vorteil configuration files and the MinIO binary. The 
        
    - just remove the configuration for NFS completely
        
-5. Run the machine using `vorteil run <cloned-directory>` or provision using `vcli images provision <directory> <provisioner> --name minio --system.hostname minio`
+4. Run the machine using `vorteil run <cloned-directory>` or provision using `vcli images provision <directory> <provisioner> --name minio --system.hostname minio`
 
 If you have any questions just ask!
