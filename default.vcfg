@@ -1,0 +1,28 @@
+[[program]]
+  binary="/minio"
+  args="server --config-dir /data/tenant1 --address :9001 /data/tenant1"
+  env=["MINIO_ACCESS_KEY=minioadmin1", "MINIO_SECRET_KEY=minioadmin1"]
+
+[[program]]
+  binary="/minio"
+  args="server --config-dir /data/tenant2 --address :9002 /data/tenant2"
+  env=["MINIO_ACCESS_KEY=minioadmin2", "MINIO_SECRET_KEY=minioadmin2"]
+
+[[program]]
+  binary="/minio"
+  args="server --config-dir /data/tenant3 --address :9003 /data/tenant3"
+  env=["MINIO_ACCESS_KEY=minioadmin3", "MINIO_SECRET_KEY=minioadmin3"]
+
+[[network]]
+  ip = "dhcp"
+  tcp = ["9001","9002","9003"]
+
+[vm]
+  cpus = 1
+  ram = "1024 MiB"
+  disk-size = "+200 MiB"
+
+[[nfs]]
+  mount = "/data"
+  server = "fs-ede241d5.efs.ap-southeast-2.amazonaws.com:/"
+  options = "nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport"
